@@ -5,7 +5,7 @@ from tabulate import tabulate
 
 
 # executes a shell command
-def execute(cmd=[], shell=False, timeout=5):
+def execute(cmd=[], shell=False, timeout=10):
     return run(cmd, shell=shell, stdout=PIPE, stderr=PIPE, timeout=timeout)
 
 
@@ -30,7 +30,7 @@ def check_ALU():
     output = task.stdout.decode().strip()
     expected = read('tests/expected/ALU')
     if output == expected:
-        return (25, 'passed', '')
+        return (20, 'passed', '')
     else:
         return (0, 'failed', '')
 
@@ -43,7 +43,7 @@ def check_rgf():
     output = task.stdout.decode().strip()
     expected = read('tests/expected/regfile')
     if output == expected:
-        return (25, 'passed', '')
+        return (20, 'passed', '')
     else:
         return (0, 'failed', '')
 
@@ -51,7 +51,7 @@ def check_rgf():
 # checks cpu.circ
 def check_cpu():
     grade = 0
-    frac = 50 / 71
+    frac = 60 / 67
     wrong = 0
     count = 0
     # basic (arithmetic/logic/shifts/lui)
@@ -60,52 +60,81 @@ def check_cpu():
         return (0, 'runtime error', task.stderr.decode().strip())
     output = task.stdout.decode().strip().split('\n')
     expected = read('tests/expected/basic').split('\n')
+    line = 0
     for (o, e) in zip(output, expected):
         o = o.strip()
         e = e.strip()
+        
         if o == e:
             grade += frac
         else:
             wrong += 1
+            if (line == 0):
+                print("Error en basic - conexiones incorrectas en datapath")
+                break
+            print("basic - line:", line)
+        line = line + 1
     # branches (beq/blt/bltu)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/branches.circ'])
     if task.returncode != 0:
         return (0, 'runtime error', task.stderr.decode().strip())
     output = task.stdout.decode().strip().split('\n')
     expected = read('tests/expected/branches').split('\n')
+    line = 0
     for (o, e) in zip(output, expected):
         o = o.strip()
         e = e.strip()
+        
         if o == e:
             grade += frac
         else:
             wrong += 1
+            if (line == 0):
+                print("Error en branches - conexiones incorrectas en datapath")
+                break
+            print("branches - line:", line)
+        line = line + 1
     # memory (sw/lb/lh/lw)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/memory.circ'])
     if task.returncode != 0:
         return (0, 'runtime error', task.stderr.decode().strip())
     output = task.stdout.decode().strip().split('\n')
     expected = read('tests/expected/memory').split('\n')
+    line = 0
     for (o, e) in zip(output, expected):
         o = o.strip()
         e = e.strip()
+        
         if o == e:
             grade += frac
         else:
             wrong += 1
+            if (line == 0):
+                print("Error en memory - conexiones incorrectas en datapath")
+                break
+            print("memory - line:", line)
+        line = line + 1
     # jump (jal/jalr)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/jump.circ'])
     if task.returncode != 0:
         return (0, 'runtime error', task.stderr.decode().strip())
     output = task.stdout.decode().strip().split('\n')
     expected = read('tests/expected/jump').split('\n')
+    line = 0
     for (o, e) in zip(output, expected):
         o = o.strip()
         e = e.strip()
+        
         if o == e:
             grade += frac
         else:
             wrong += 1
+            if (line == 0):
+                print("Error en jumps - conexiones incorrectas en datapath")
+                break
+            print("jump - line:", line)
+        line = line + 1
+    grade -= frac*4
     grade = round(grade)
     return (grade, 'passed' if wrong == 0 else 'some tests failed', '')
 

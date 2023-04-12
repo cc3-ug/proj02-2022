@@ -30,7 +30,7 @@ def check_ALU():
     output = task.stdout.decode().strip()
     expected = read('tests/expected/ALU')
     if output == expected:
-        return (20, 'passed', '')
+        return (10, 'passed', '')
     else:
         return (0, 'failed', '')
 
@@ -43,7 +43,7 @@ def check_rgf():
     output = task.stdout.decode().strip()
     expected = read('tests/expected/regfile')
     if output == expected:
-        return (20, 'passed', '')
+        return (10, 'passed', '')
     else:
         return (0, 'failed', '')
 
@@ -51,9 +51,10 @@ def check_rgf():
 # checks cpu.circ
 def check_cpu():
     grade = 0
-    frac = 60 / 67
+    frac = 80 / 67
     wrong = 0
     count = 0
+    
     # basic (arithmetic/logic/shifts/lui)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/basic.circ'])
     if task.returncode != 0:
@@ -70,10 +71,11 @@ def check_cpu():
         else:
             wrong += 1
             if (line == 0):
-                print("Error en basic - conexiones incorrectas en datapath")
+                print("Error mayor en basic - revisa las conexiones de tu datapath")
                 break
             print("basic - line:", line)
         line = line + 1
+    
     # branches (beq/blt/bltu)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/branches.circ'])
     if task.returncode != 0:
@@ -86,14 +88,16 @@ def check_cpu():
         e = e.strip()
         
         if o == e:
-            grade += frac
+            if (line != 0):
+                grade += frac
         else:
             wrong += 1
             if (line == 0):
-                print("Error en branches - conexiones incorrectas en datapath")
+                print("Error mayor en branches - revisa las conexiones de tu datapath")
                 break
             print("branches - line:", line)
         line = line + 1
+    
     # memory (sw/lb/lh/lw)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/memory.circ'])
     if task.returncode != 0:
@@ -106,14 +110,16 @@ def check_cpu():
         e = e.strip()
         
         if o == e:
-            grade += frac
+            if (line != 0):
+                grade += frac
         else:
             wrong += 1
             if (line == 0):
-                print("Error en memory - conexiones incorrectas en datapath")
+                print("Error mayor en memory - revisa las conexiones de tu datapath")
                 break
             print("memory - line:", line)
         line = line + 1
+    
     # jump (jal/jalr)
     task = execute(cmd=['java', '-jar', 'tests/logisim.jar', '-tty', 'table', 'tests/jump.circ'])
     if task.returncode != 0:
@@ -126,15 +132,16 @@ def check_cpu():
         e = e.strip()
         
         if o == e:
-            grade += frac
+            if (line != 0):
+                grade += frac
         else:
             wrong += 1
             if (line == 0):
-                print("Error en jumps - conexiones incorrectas en datapath")
+                print("Error mayor en jump - revisa las conexiones de tu datapath")
                 break
             print("jump - line:", line)
         line = line + 1
-    grade -= frac*4
+    
     grade = round(grade)
     return (grade, 'passed' if wrong == 0 else 'some tests failed', '')
 

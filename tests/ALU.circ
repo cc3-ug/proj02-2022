@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
-This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-<lib desc="#Wiring" name="0">
+  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+
+  <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="west"/>
       <a name="incoming" val="32"/>
@@ -133,6 +134,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(50,260)" to="(220,260)"/>
     <wire from="(50,390)" to="(220,390)"/>
     <wire from="(1050,310)" to="(1050,320)"/>
+    <wire from="(1090,310)" to="(1090,320)"/>
     <wire from="(170,130)" to="(170,160)"/>
     <wire from="(710,190)" to="(710,210)"/>
     <wire from="(50,100)" to="(50,260)"/>
@@ -160,22 +162,29 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(110,190)" to="(180,190)"/>
     <wire from="(60,130)" to="(60,190)"/>
     <wire from="(750,280)" to="(760,280)"/>
-    <comp lib="6" loc="(92,299)" name="Text">
-      <a name="text" val="Halt signal"/>
+    <comp lib="0" loc="(730,190)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="1"/>
     </comp>
-    <comp lib="0" loc="(930,320)" name="Tunnel">
-      <a name="facing" val="north"/>
+    <comp lib="0" loc="(930,310)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
       <a name="width" val="32"/>
-      <a name="label" val="0"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(840,320)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="width" val="8"/>
       <a name="label" val="In"/>
     </comp>
-    <comp lib="0" loc="(690,190)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="3"/>
+    <comp lib="0" loc="(320,270)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="In"/>
+    </comp>
+    <comp lib="4" loc="(100,190)" name="Register"/>
+    <comp lib="0" loc="(80,230)" name="Clock">
+      <a name="facing" val="north"/>
     </comp>
     <comp lib="0" loc="(160,340)" name="Pin">
       <a name="facing" val="west"/>
@@ -183,12 +192,43 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="halt"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(640,230)" name="Tunnel">
+    <comp lib="0" loc="(690,190)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="3"/>
+    </comp>
+    <comp lib="0" loc="(90,330)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0xff"/>
+    </comp>
+    <comp lib="0" loc="(990,310)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(310,140)" name="Tunnel">
       <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="In"/>
+    </comp>
+    <comp lib="0" loc="(1020,320)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="2"/>
+    </comp>
+    <comp lib="0" loc="(320,400)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="In"/>
+    </comp>
+    <comp lib="0" loc="(490,140)" name="Tunnel">
       <a name="width" val="32"/>
       <a name="label" val="A"/>
     </comp>
-    <comp lib="0" loc="(990,310)" name="Pin">
+    <comp lib="0" loc="(1090,320)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="4"/>
+      <a name="label" val="Op"/>
+    </comp>
+    <comp lib="0" loc="(1050,310)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -196,6 +236,47 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(490,270)" name="Tunnel">
       <a name="width" val="32"/>
       <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(730,380)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="4"/>
+      <a name="label" val="Op"/>
+    </comp>
+    <comp lib="6" loc="(86,119)" name="Text">
+      <a name="text" val="Counter"/>
+    </comp>
+    <comp lib="0" loc="(180,190)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="In"/>
+    </comp>
+    <comp lib="0" loc="(710,190)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="2"/>
+    </comp>
+    <comp lib="0" loc="(380,190)" name="Constant">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(380,450)" name="Constant">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="3" loc="(150,340)" name="Comparator">
+      <a name="mode" val="unsigned"/>
+    </comp>
+    <comp lib="0" loc="(1090,310)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(640,330)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(640,230)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="A"/>
     </comp>
     <comp lib="4" loc="(470,400)" name="ROM">
       <a name="dataWidth" val="4"/>
@@ -234,115 +315,28 @@ b 2 6 5 8 3 b 0
 7 0 5 6 a 0 9
 </a>
     </comp>
-    <comp lib="0" loc="(930,310)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
+    <comp lib="0" loc="(760,280)" name="Tunnel">
       <a name="width" val="32"/>
-      <a name="labelloc" val="east"/>
+      <a name="label" val="0"/>
     </comp>
-    <comp lib="0" loc="(1050,310)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="0" loc="(490,400)" name="Tunnel">
+      <a name="width" val="4"/>
+      <a name="label" val="Op"/>
     </comp>
+    <comp lib="7" loc="(750,280)" name="ALU"/>
     <comp lib="0" loc="(840,310)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="4" loc="(470,140)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-7c8ad2c1 8d2406d0 91a4589a d69f632a db66fa29 574c4b10 f868156d 6168b633
-3c18bfdb b97e65cf e2982a68 37c6d3ff db177b06 655272a2 7c375cd3 25fd795a
-f656a31c 49c503fa dbbbb608 4456f1e4 f43f074a 49ef1cfc 4f75f59f 7f61a808
-ab0c6eb5 9741dbcc 3b80da93 fa9a88e9 49859e80 e97ebbcd 18863be2 9788d7f9
-b8ed7726 3fe36eeb c8992c0 5e68e175 7eeaf510 cf6fca6 d9648ec b6336718
-6b269da6 4249b608 71a5fa7e ad9a5157 5f855378 3d456d51 1ce9ce8e d3ba149f
-61ab358e bd85a30f 7725568c 177d6ebf 87d10227 54a1cf3 9aca66d4 17e07e3c
-b87fb89d ab8b479 102d797f 81ffe37e e547602b f9d7edf5 c7f6c7fe abd274e9
-6f59cd9e 72ed967b d02b6955 1da27028 e4c42f73 5bf2e6c0 92e5d4ac cec40649
-c95c2b40 641aa0e6 94b0c3f0 62de59d 2cf3aa80 e62f23b7 6efaff1b 81d134c
-1dbe900c b716f7cb 7530c8ff 93f6caac 8cf29fc3 61e1e5f4 862585d6 4e0cf920
-629a62da 5d2043b6 207164b0 cf41c654 b14224bf 360e97b3 677d78d2 b051a027
-bb255193 dced0564 dc5a4f6d d7352005 d32f360 4511a73 e8090a86 44e03081
-4287f898 204d5377 4a126950 6379087b 16e6933b 5c45dadb f8933287 52c92730
-554e530d 82f5c0f4 3b637c5d 22960d5f b351f35e 749b5aa6 755331b6 918c2903
-5ef570b5 40df57ff c50d6d33 922dd348 5ba4aef7 da3806da 11d82e2d 1490e3d9
-ab90bddb 94a1ee3e 4ec35190 79069d7 ff417807 7ca4adc6 f35ed913 c06638c0
-36e53a09 d07043cf 8e5a9a6e 4554513 b0aaaecb 92a1a937 46f5f079 f70a7466
-9e633e3c 7ced53b9 78898689 4b920798 7efea9bb db5dcefb 1a91aa37 6c368a3d
-8674c370 7c13eaa9 7b8f0736 73003077 5437d7b5 a4d7e3df 368da8be de9f3f7d
-2ea48332 98781a8c dfdce8b1 193004a 2c799628 eda9aa6e 7ebbe951 940678d4
-ec12b96e a5e739d2 912ee0df f8fed275 27c56905 7a5985ce 8118002f 7960795a
-29787e41 aabda924 592018f9 2cf9597c 77fc4034 71693304 bbbb1398 f38ad003
-348fb46d 47763da0 db715c8f fff59eeb 4dc87184 211f1e59 ef942539 27225b5b
-7aa143a1 50a3980c 2d32a2b2 bc7c1717 99b3ccbe 32fa67c5 8ba560b7 69b5ee0b
-366182e2 396b73ab 2e4742de bed70d5 f0a2ffd a36b70 28baeaba d0f95ae7
-ca3d29ee 388b0c09 fd2d60d7 9c9f0ebc a6032f1a 42c4e914 547dd58 c8b513ff
-77319c9d 7d9008cd 841499bb e6e5aa43 3e553441 94d5fe44 78452fe1 42bca228
-8fc8ce13 445bc23f 5c34a004 a653b1da bd5559c3 168a8bae 20b3688b 830752c6
-4004385d efc2a859 6194be6e acf4d2a0 f29ccaae e77f187b ca7b3d96 9037333c
-7e60c40b 97ae2ba3 768c6419 ec2d3623 d1c72719 a1421c3d b23e8bb4 cae1f848
-350ee21b 351c7805 afe77075 b65fdaa6 a1e41546 7bc544b4 6fa2dc9
-</a>
-    </comp>
-    <comp lib="0" loc="(490,140)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="A"/>
-    </comp>
-    <comp lib="0" loc="(1050,320)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="3"/>
-    </comp>
+    <comp lib="3" loc="(160,160)" name="Adder"/>
     <comp lib="0" loc="(380,320)" name="Constant">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="0" loc="(1020,320)" name="Tunnel">
+    <comp lib="0" loc="(990,320)" name="Tunnel">
       <a name="facing" val="north"/>
-      <a name="label" val="2"/>
-    </comp>
-    <comp lib="0" loc="(640,330)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="0" loc="(320,400)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="In"/>
-    </comp>
-    <comp lib="0" loc="(380,190)" name="Constant">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(180,190)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="In"/>
-    </comp>
-    <comp lib="0" loc="(90,330)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0xff"/>
-    </comp>
-    <comp lib="0" loc="(760,280)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="0"/>
-    </comp>
-    <comp lib="0" loc="(310,140)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="In"/>
-    </comp>
-    <comp lib="0" loc="(710,190)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="2"/>
-    </comp>
-    <comp lib="7" loc="(750,280)" name="ALU"/>
-    <comp lib="6" loc="(86,119)" name="Text">
-      <a name="text" val="Counter"/>
-    </comp>
-    <comp lib="0" loc="(80,230)" name="Clock">
-      <a name="facing" val="north"/>
+      <a name="label" val="1"/>
     </comp>
     <comp lib="4" loc="(470,270)" name="ROM">
       <a name="dataWidth" val="32"/>
@@ -381,48 +375,67 @@ ace5a8f2 e7c4b89a 8cf36ebb a40b212e eca85885 c9a78fc2 ba308378 ffd81b60
 7c34dc 2b5106db 1d135924 34cbaa78 ac0daf21 7cff3159 db96ad51
 </a>
     </comp>
-    <comp lib="0" loc="(490,400)" name="Tunnel">
-      <a name="width" val="4"/>
-      <a name="label" val="Op"/>
-    </comp>
-    <comp lib="4" loc="(100,190)" name="Register"/>
-    <comp lib="0" loc="(730,190)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="1"/>
-    </comp>
-    <comp lib="3" loc="(150,340)" name="Comparator">
-      <a name="mode" val="unsigned"/>
-    </comp>
-    <comp lib="3" loc="(160,160)" name="Adder"/>
-    <comp lib="0" loc="(90,360)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="In"/>
-    </comp>
-    <comp lib="0" loc="(110,150)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(990,320)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="1"/>
-    </comp>
-    <comp lib="0" loc="(730,380)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="4"/>
-      <a name="label" val="Op"/>
-    </comp>
-    <comp lib="0" loc="(380,450)" name="Constant">
-      <a name="facing" val="north"/>
-    </comp>
     <comp lib="0" loc="(1020,310)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(320,270)" name="Tunnel">
+    <comp lib="0" loc="(90,360)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="8"/>
       <a name="label" val="In"/>
+    </comp>
+    <comp lib="4" loc="(470,140)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+7c8ad2c1 8d2406d0 91a4589a d69f632a db66fa29 574c4b10 f868156d 6168b633
+3c18bfdb b97e65cf e2982a68 37c6d3ff db177b06 655272a2 7c375cd3 25fd795a
+f656a31c 49c503fa dbbbb608 4456f1e4 f43f074a 49ef1cfc 4f75f59f 7f61a808
+ab0c6eb5 9741dbcc 3b80da93 fa9a88e9 49859e80 e97ebbcd 18863be2 9788d7f9
+b8ed7726 3fe36eeb c8992c0 5e68e175 7eeaf510 cf6fca6 d9648ec b6336718
+6b269da6 4249b608 71a5fa7e ad9a5157 5f855378 3d456d51 1ce9ce8e d3ba149f
+61ab358e bd85a30f 7725568c 177d6ebf 87d10227 54a1cf3 9aca66d4 17e07e3c
+b87fb89d ab8b479 102d797f 81ffe37e e547602b f9d7edf5 c7f6c7fe abd274e9
+6f59cd9e 72ed967b d02b6955 1da27028 e4c42f73 5bf2e6c0 92e5d4ac cec40649
+c95c2b40 641aa0e6 94b0c3f0 62de59d 2cf3aa80 e62f23b7 6efaff1b 81d134c
+1dbe900c b716f7cb 7530c8ff 93f6caac 8cf29fc3 61e1e5f4 862585d6 4e0cf920
+629a62da 5d2043b6 207164b0 cf41c654 b14224bf 360e97b3 677d78d2 b051a027
+bb255193 dced0564 dc5a4f6d d7352005 d32f360 4511a73 e8090a86 44e03081
+4287f898 204d5377 4a126950 6379087b 16e6933b 5c45dadb f8933287 52c92730
+554e530d 82f5c0f4 3b637c5d 22960d5f b351f35e 749b5aa6 755331b6 918c2903
+5ef570b5 40df57ff c50d6d33 922dd348 5ba4aef7 da3806da 11d82e2d 1490e3d9
+ab90bddb 94a1ee3e 4ec35190 79069d7 ff417807 7ca4adc6 f35ed913 c06638c0
+36e53a09 d07043cf 8e5a9a6e 4554513 b0aaaecb 92a1a937 46f5f079 f70a7466
+9e633e3c 7ced53b9 78898689 4b920798 7efea9bb db5dcefb 1a91aa37 6c368a3d
+8674c370 7c13eaa9 7b8f0736 73003077 5437d7b5 a4d7e3df 368da8be de9f3f7d
+2ea48332 98781a8c dfdce8b1 193004a 2c799628 eda9aa6e 7ebbe951 940678d4
+ec12b96e a5e739d2 912ee0df f8fed275 27c56905 7a5985ce 8118002f 7960795a
+29787e41 aabda924 592018f9 2cf9597c 77fc4034 71693304 bbbb1398 f38ad003
+348fb46d 47763da0 db715c8f fff59eeb 4dc87184 211f1e59 ef942539 27225b5b
+7aa143a1 50a3980c 2d32a2b2 bc7c1717 99b3ccbe 32fa67c5 8ba560b7 69b5ee0b
+366182e2 396b73ab 2e4742de bed70d5 f0a2ffd a36b70 28baeaba d0f95ae7
+ca3d29ee 388b0c09 fd2d60d7 9c9f0ebc a6032f1a 42c4e914 547dd58 c8b513ff
+77319c9d 7d9008cd 841499bb e6e5aa43 3e553441 94d5fe44 78452fe1 42bca228
+8fc8ce13 445bc23f 5c34a004 a653b1da bd5559c3 168a8bae 20b3688b 830752c6
+4004385d efc2a859 6194be6e acf4d2a0 f29ccaae e77f187b ca7b3d96 9037333c
+7e60c40b 97ae2ba3 768c6419 ec2d3623 d1c72719 a1421c3d b23e8bb4 cae1f848
+350ee21b 351c7805 afe77075 b65fdaa6 a1e41546 7bc544b4 6fa2dc9
+</a>
+    </comp>
+    <comp lib="0" loc="(110,150)" name="Constant">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(930,320)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="32"/>
+      <a name="label" val="0"/>
+    </comp>
+    <comp lib="6" loc="(92,299)" name="Text">
+      <a name="text" val="Halt signal"/>
+    </comp>
+    <comp lib="0" loc="(1050,320)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="3"/>
     </comp>
   </circuit>
 </project>

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
-This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-<lib desc="#Wiring" name="0"/>
+  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+
+  <lib desc="#Wiring" name="0"/>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
-  <lib desc="#Memory" name="4"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#Base" name="6">
     <tool name="Text Tool">
@@ -60,24 +67,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="89" y="160">Op</text>
       <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="95" y="113">OUT</text>
       <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="40" y="163">B</text>
-      <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="70" y="56">LT</text>
-      <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="89" y="64">==</text>
-      <text font-family="Dialog" font-size="8" font-weight="bold" text-anchor="middle" x="50" y="45">LTU</text>
       <circ-port height="8" pin="150,220" width="8" x="26" y="56"/>
       <circ-port height="8" pin="150,330" width="8" x="26" y="156"/>
       <circ-port height="8" pin="150,410" width="8" x="86" y="166"/>
       <circ-port height="10" pin="1280,210" width="10" x="105" y="105"/>
-      <circ-port height="10" pin="1280,280" width="10" x="85" y="45"/>
-      <circ-port height="10" pin="1280,320" width="10" x="65" y="35"/>
-      <circ-port height="10" pin="1280,360" width="10" x="45" y="25"/>
       <circ-anchor facing="east" height="6" width="6" x="107" y="107"/>
     </appear>
     <wire from="(50,160)" to="(210,160)"/>
     <wire from="(50,440)" to="(210,440)"/>
     <wire from="(1270,210)" to="(1280,210)"/>
-    <wire from="(1270,280)" to="(1280,280)"/>
-    <wire from="(1270,320)" to="(1280,320)"/>
-    <wire from="(1270,360)" to="(1280,360)"/>
     <wire from="(150,220)" to="(170,220)"/>
     <wire from="(150,330)" to="(170,330)"/>
     <wire from="(150,410)" to="(170,410)"/>
@@ -91,83 +89,33 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(980,30)" to="(980,80)"/>
     <wire from="(1210,160)" to="(1390,160)"/>
     <wire from="(1210,390)" to="(1390,390)"/>
-    <comp lib="6" loc="(665,25)" name="Text">
-      <a name="text" val="NOTE"/>
-      <a name="font" val="SansSerif bold 14"/>
-    </comp>
-    <comp lib="0" loc="(170,220)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="A"/>
-    </comp>
-    <comp lib="0" loc="(1280,360)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="LTU"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1280,320)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="LT"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1270,320)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="LT"/>
-    </comp>
-    <comp lib="6" loc="(686,60)" name="Text">
-      <a name="text" val="Please do not modify/replace/move/change/delete/etc input and output pins"/>
-      <a name="font" val="SansSerif bold 13"/>
-    </comp>
-    <comp lib="0" loc="(1270,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="Out"/>
-    </comp>
-    <comp lib="0" loc="(1280,280)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Equal"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="6" loc="(1239,152)" name="Text">
-      <a name="text" val="Outputs"/>
-      <a name="font" val="SansSerif bold 12"/>
-    </comp>
-    <comp lib="0" loc="(170,410)" name="Tunnel">
-      <a name="width" val="4"/>
-      <a name="label" val="Op"/>
-    </comp>
-    <comp lib="0" loc="(150,330)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="0" loc="(1270,280)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="Equal"/>
-    </comp>
     <comp lib="0" loc="(150,410)" name="Pin">
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
       <a name="label" val="ALU Op"/>
-    </comp>
-    <comp lib="6" loc="(72,154)" name="Text">
-      <a name="text" val="Inputs"/>
-      <a name="font" val="SansSerif bold 12"/>
-    </comp>
-    <comp lib="0" loc="(1270,360)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="LTU"/>
     </comp>
     <comp lib="0" loc="(150,220)" name="Pin">
       <a name="width" val="32"/>
       <a name="tristate" val="false"/>
       <a name="label" val="A"/>
     </comp>
-    <comp lib="0" loc="(170,330)" name="Tunnel">
+    <comp lib="6" loc="(72,154)" name="Text">
+      <a name="text" val="Inputs"/>
+      <a name="font" val="SansSerif bold 12"/>
+    </comp>
+    <comp lib="0" loc="(150,330)" name="Pin">
       <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
       <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(1270,210)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="Out"/>
+    </comp>
+    <comp lib="6" loc="(1239,152)" name="Text">
+      <a name="text" val="Outputs"/>
+      <a name="font" val="SansSerif bold 12"/>
     </comp>
     <comp lib="0" loc="(1280,210)" name="Pin">
       <a name="facing" val="west"/>
@@ -175,6 +123,26 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="32"/>
       <a name="label" val="Out"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(170,220)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="6" loc="(686,60)" name="Text">
+      <a name="text" val="Please do not modify/replace/move/change/delete/etc input and output pins"/>
+      <a name="font" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="6" loc="(665,25)" name="Text">
+      <a name="text" val="NOTE"/>
+      <a name="font" val="SansSerif bold 14"/>
+    </comp>
+    <comp lib="0" loc="(170,410)" name="Tunnel">
+      <a name="width" val="4"/>
+      <a name="label" val="Op"/>
+    </comp>
+    <comp lib="0" loc="(170,330)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="B"/>
     </comp>
   </circuit>
 </project>

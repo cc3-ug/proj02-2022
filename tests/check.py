@@ -1,11 +1,11 @@
+import utils
 from subprocess import run
 from subprocess import PIPE
 from xml.dom import minidom
-from tabulate import tabulate
 
 
 # executes a shell command
-def execute(cmd=[], shell=False, timeout=10):
+def execute(cmd=[], shell=False, timeout=15):
     return run(cmd, shell=shell, stdout=PIPE, stderr=PIPE, timeout=timeout)
 
 
@@ -30,7 +30,7 @@ def check_ALU():
     output = task.stdout.decode().strip().split('\n')
     expected = read('tests/expected/ALU').split('\n')
     wrong = 0
-    grade = 10
+    grade = 5
     for (o, e) in zip(output, expected):
         o = o.strip()
         e = e.strip()
@@ -52,7 +52,7 @@ def check_rgf():
     output = task.stdout.decode().strip()
     expected = read('tests/expected/regfile')
     if output == expected:
-        return (10, 'passed', '')
+        return (5, 'passed', '')
     else:
         return (0, 'failed', '')
 
@@ -60,7 +60,7 @@ def check_rgf():
 # checks cpu.circ
 def check_cpu():
     grade = 0
-    frac = 80 / 67      # magic number, should be 66 but...
+    frac = 90 / 67      # magic number, should be 66 but...
     wrong = 0
     count = 0
     
@@ -183,11 +183,12 @@ def proj2_logisim():
     grade += rgf_result[0]
     grade += cpu_result[0]
     grade = min(round(grade), 100)
-    report = create_report(table)
+
+    report = utils.report(table)
+    print(report)
     if errors != '':
         report += '\n\nMore Info:\n\n' + errors
-    print(report)
-    print('\n=> Score: %d/100' % grade)
+    return utils.write_result(grade, report)
 
 
 if __name__ == '__main__':

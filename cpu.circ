@@ -26,7 +26,7 @@
   <lib desc="file#./memory.circ" name="8"/>
   <lib desc="file#./regfile.circ" name="9"/>
   <lib desc="file#./alu.circ" name="10"/>
-  <lib desc="jar#/home/student/proj02-2022/lib/cc3.jar#cc3.Components" name="11">
+  <lib desc="jar#./lib/cc3.jar#cc3.Components" name="11">
     <tool name="RISC-VProgramROM">
       <a name="contents" val=""/>
     </tool>
